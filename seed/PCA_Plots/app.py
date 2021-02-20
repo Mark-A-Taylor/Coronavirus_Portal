@@ -12,8 +12,9 @@ from sklearn.decomposition import PCA
 app = dash.Dash(__name__)
 
 
-df_default = pd.read_csv('Ifn_Means.csv')
-df = pd.read_csv('Means.csv')
+file_folder = '../data/'
+df_default = pd.read_csv(file_folder + 'Ifn_Means.csv')
+df = pd.read_csv(file_folder + 'Means.csv')
 
 PAGE_SIZE = 5
 
@@ -182,7 +183,7 @@ def update_graph(rows,meta):
         exp_data = go.Scatter(x=x_axis,y=y_series)
         fig.add_trace(go.Scatter(exp_data,name=gene,textposition="top center"))
 
-    df3 = pd.read_csv('74biosets_abridged.csv')
+    df3 = pd.read_csv(file_folder + '74biosets_abridged.csv')
     features = []
     i = 4
     while i < len(df3.columns):
