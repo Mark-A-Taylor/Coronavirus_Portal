@@ -10,9 +10,9 @@ import plotly.express as px
 
 app = dash.Dash(__name__)
 
-
-df_default = pd.read_csv('Ifn_Means.csv')
-df = pd.read_csv('Means.csv')
+file_folder = '../data/'
+df_default = pd.read_csv(file_folder + 'Ifn_Means.csv')
+df = pd.read_csv(file_folder + 'Means.csv')
 
 PAGE_SIZE = 5
 
