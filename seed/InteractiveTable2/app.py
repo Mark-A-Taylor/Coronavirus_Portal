@@ -11,8 +11,9 @@ import plotly.express as px
 app = dash.Dash(__name__)
 
 
-df_default = pd.read_csv('Ifn_Means.csv')
-df = pd.read_csv('Means.csv')
+file_folder = '../data/'
+df_default = pd.read_csv(file_folder + 'Ifn_Means.csv')
+df = pd.read_csv(file_folder + 'Means.csv')
 
 PAGE_SIZE = 5
 
@@ -149,7 +150,7 @@ def update_graph(rows):
     #make dictionary entry
     #where key is Gene_DPI_Strain_Dose
     
-    f = open("74biosets_abridged.csv", "r")
+    f = open(file_folder + "74biosets_abridged.csv", "r")
     i = 1 #i is file line counter
     genes = [] #pulled from header line
     pdi_age_strain_lookup = {}
