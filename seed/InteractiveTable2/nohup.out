@@ -1,0 +1,769 @@
+Dash is running on http://0.0.0.0:8050/
+
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://0.0.0.0:8050/ (Press CTRL+C to quit)
+73.247.70.144 - - [03/Nov/2020 04:43:01] "[37mGET / HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 04:43:01] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 04:43:01] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 04:43:01] "[37mGET /_favicon.ico?v=1.16.3 HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 04:43:02] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 04:43:02] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+[2020-11-03 04:49:39,360] ERROR in app: Exception on /_dash-update-component [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/dash/dash.py", line 1072, in dispatch
+    response.set_data(func(*args, outputs_list=outputs_list))
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/dash/dash.py", line 1007, in add_context
+    output_value = func(*args, **kwargs)  # %% callback invoked %%
+  File "app.py", line 117, in update_table
+    dff = dff.loc[dff[col_name].str.contains(filter_value)]
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/pandas/core/strings.py", line 2001, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/pandas/core/strings.py", line 2824, in contains
+    result = str_contains(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/pandas/core/strings.py", line 439, in str_contains
+    regex = re.compile(pat, flags=flags)
+  File "/usr/lib/python3.8/re.py", line 252, in compile
+    return _compile(pattern, flags)
+  File "/usr/lib/python3.8/re.py", line 304, in _compile
+    p = sre_compile.compile(pattern, flags)
+  File "/usr/lib/python3.8/sre_compile.py", line 764, in compile
+    p = sre_parse.parse(p, flags)
+  File "/usr/lib/python3.8/sre_parse.py", line 948, in parse
+    p = _parse_sub(source, state, flags & SRE_FLAG_VERBOSE, 0)
+  File "/usr/lib/python3.8/sre_parse.py", line 443, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+  File "/usr/lib/python3.8/sre_parse.py", line 668, in _parse
+    raise source.error("nothing to repeat",
+re.error: nothing to repeat at position 0
+73.247.70.144 - - [03/Nov/2020 04:49:39] "[35m[1mPOST /_dash-update-component HTTP/1.1[0m" 500 -
+73.247.70.144 - - [03/Nov/2020 04:49:49] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 04:49:49] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 04:49:56] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 04:49:56] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 04:52:00] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 04:52:00] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 04:52:08] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 04:52:08] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+87.101.93.240 - - [03/Nov/2020 05:02:13] "[37mGET / HTTP/1.1[0m" 200 -
+87.101.93.240 - - [03/Nov/2020 05:02:18] "[37mGET /_dash-component-suites/dash_renderer/polyfill@7.v1_8_2m1603676187.8.7.min.js HTTP/1.1[0m" 200 -
+87.101.93.240 - - [03/Nov/2020 05:02:19] "[37mGET /_dash-component-suites/dash_renderer/prop-types@15.v1_8_2m1603676187.7.2.min.js HTTP/1.1[0m" 200 -
+87.101.93.240 - - [03/Nov/2020 05:02:19] "[37mGET /_dash-component-suites/dash_renderer/react@16.v1_8_2m1603676187.13.0.min.js HTTP/1.1[0m" 200 -
+87.101.93.240 - - [03/Nov/2020 05:02:19] "[37mGET /_dash-component-suites/dash_core_components/dash_core_components-shared.v1_12_1m1603676187.js HTTP/1.1[0m" 200 -
+87.101.93.240 - - [03/Nov/2020 05:02:19] "[37mGET /_dash-component-suites/dash_renderer/react-dom@16.v1_8_2m1603676187.13.0.min.js HTTP/1.1[0m" 200 -
+87.101.93.240 - - [03/Nov/2020 05:02:19] "[37mGET /_dash-component-suites/dash_core_components/dash_core_components.v1_12_1m1603676187.min.js HTTP/1.1[0m" 200 -
+87.101.93.240 - - [03/Nov/2020 05:02:19] "[37mGET /_dash-component-suites/dash_table/bundle.v4_10_1m1603676187.js HTTP/1.1[0m" 200 -
+87.101.93.240 - - [03/Nov/2020 05:02:19] "[37mGET /_dash-component-suites/dash_html_components/dash_html_components.v1_1_1m1603676187.min.js HTTP/1.1[0m" 200 -
+87.101.93.240 - - [03/Nov/2020 05:02:19] "[37mGET /_dash-component-suites/dash_renderer/dash_renderer.v1_8_2m1603676187.min.js HTTP/1.1[0m" 200 -
+87.101.93.240 - - [03/Nov/2020 05:02:27] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+87.101.93.240 - - [03/Nov/2020 05:02:27] "[37mGET /_favicon.ico?v=1.16.3 HTTP/1.1[0m" 200 -
+87.101.93.240 - - [03/Nov/2020 05:02:27] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+87.101.93.240 - - [03/Nov/2020 05:02:27] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+87.101.93.240 - - [03/Nov/2020 05:02:27] "[37mGET /_dash-component-suites/dash_table/async-table.v4_10_1m1599150397.js HTTP/1.1[0m" 200 -
+87.101.93.240 - - [03/Nov/2020 05:02:28] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+87.101.93.240 - - [03/Nov/2020 05:02:29] "[37mGET /_dash-component-suites/dash_core_components/async-graph.v1_12_1m1600286997.js HTTP/1.1[0m" 200 -
+87.101.93.240 - - [03/Nov/2020 05:02:29] "[37mGET /_dash-component-suites/dash_core_components/async-plotlyjs.v1_12_1m1600286997.js HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:03:19] "[37mGET / HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:03:19] "[37mGET /_dash-component-suites/dash_renderer/polyfill@7.v1_8_2m1603676187.8.7.min.js HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:03:19] "[37mGET /_dash-component-suites/dash_renderer/prop-types@15.v1_8_2m1603676187.7.2.min.js HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:03:19] "[37mGET /_dash-component-suites/dash_renderer/react@16.v1_8_2m1603676187.13.0.min.js HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:03:19] "[37mGET /_dash-component-suites/dash_core_components/dash_core_components-shared.v1_12_1m1603676187.js HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:03:19] "[37mGET /_dash-component-suites/dash_renderer/react-dom@16.v1_8_2m1603676187.13.0.min.js HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:03:19] "[37mGET /_dash-component-suites/dash_core_components/dash_core_components.v1_12_1m1603676187.min.js HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:03:19] "[37mGET /_dash-component-suites/dash_html_components/dash_html_components.v1_1_1m1603676187.min.js HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:03:19] "[37mGET /_dash-component-suites/dash_table/bundle.v4_10_1m1603676187.js HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:03:19] "[37mGET /_dash-component-suites/dash_renderer/dash_renderer.v1_8_2m1603676187.min.js HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:03:19] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:03:19] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:03:19] "[37mGET /_favicon.ico?v=1.16.3 HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:03:19] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:03:19] "[37mGET /_dash-component-suites/dash_table/async-table.v4_10_1m1599150397.js HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:03:20] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:03:20] "[37mGET /_dash-component-suites/dash_core_components/async-graph.v1_12_1m1600286997.js HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:03:20] "[37mGET /_dash-component-suites/dash_core_components/async-plotlyjs.v1_12_1m1600286997.js HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:03:51] "[37mGET / HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:03:51] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:03:51] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:03:51] "[37mGET /_favicon.ico?v=1.16.3 HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:03:52] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:03:52] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:04:15] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:04:15] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:04:16] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:04:16] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:04:25] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:04:25] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:04:30] "[37mGET / HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:04:31] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:04:31] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:04:31] "[37mGET /_favicon.ico?v=1.16.3 HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:04:31] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:04:31] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:04:52] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:04:52] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:01] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:01] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:02] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:02] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:02] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:02] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:02] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:02] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:03] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:03] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:03] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:03] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:03] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:03] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:03] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:04] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:04] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:04] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:04] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:04] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:04] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:04] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:04] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:04] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:05] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:05] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:05] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:05] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:05] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:05] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:05] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:05] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:06] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:06] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:06] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:06] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:06] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:06] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:06] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:06] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:07] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:08] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:08] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:08] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:08] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:08] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:08] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:08] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:08] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:09] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:09] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:09] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:09] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:09] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:09] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:09] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:09] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:09] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:09] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:10] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:10] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:10] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:10] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:10] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:11] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:11] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:11] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:11] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:11] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:12] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:12] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:12] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:12] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 05:05:12] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+192.84.34.83 - - [03/Nov/2020 16:00:07] "[37mGET / HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 16:04:55] "[37mGET / HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 16:04:55] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 16:04:55] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 16:04:55] "[37mGET /_favicon.ico?v=1.16.3 HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 16:04:55] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 16:04:55] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 16:05:03] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 16:05:03] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 16:05:16] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 16:05:16] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 16:05:26] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 16:05:26] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 16:05:29] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 16:05:29] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 16:05:34] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 16:05:34] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 16:07:24] "[37mGET / HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 16:07:24] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 16:07:25] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 16:07:25] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 16:07:25] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:13:22] "[37mGET / HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:13:22] "[37mGET /_dash-component-suites/dash_renderer/polyfill@7.v1_8_2m1603676187.8.7.min.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:13:22] "[37mGET /_dash-component-suites/dash_renderer/react@16.v1_8_2m1603676187.13.0.min.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:13:22] "[37mGET /_dash-component-suites/dash_renderer/prop-types@15.v1_8_2m1603676187.7.2.min.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:13:22] "[37mGET /_dash-component-suites/dash_core_components/dash_core_components-shared.v1_12_1m1603676187.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:13:22] "[37mGET /_dash-component-suites/dash_renderer/react-dom@16.v1_8_2m1603676187.13.0.min.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:13:22] "[37mGET /_dash-component-suites/dash_core_components/dash_core_components.v1_12_1m1603676187.min.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:13:22] "[37mGET /_dash-component-suites/dash_table/bundle.v4_10_1m1603676187.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:13:22] "[37mGET /_dash-component-suites/dash_html_components/dash_html_components.v1_1_1m1603676187.min.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:13:22] "[37mGET /_dash-component-suites/dash_renderer/dash_renderer.v1_8_2m1603676187.min.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:13:22] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:13:22] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:13:22] "[37mGET /_favicon.ico?v=1.16.3 HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:13:23] "[37mGET /_dash-component-suites/dash_table/async-table.v4_10_1m1599150397.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:13:23] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:13:23] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:13:23] "[37mGET /_dash-component-suites/dash_core_components/async-graph.v1_12_1m1600286997.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:13:23] "[37mGET /_dash-component-suites/dash_core_components/async-plotlyjs.v1_12_1m1600286997.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:14:07] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:14:07] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:14:24] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:14:24] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:20:51] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:20:51] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:20:54] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:20:55] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:20:57] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:20:57] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:20:58] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:20:58] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:20:59] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:20:59] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:21:02] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:21:02] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:21:04] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:21:04] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:21:04] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:21:05] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:21:06] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:21:06] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:21:40] "[37mGET / HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:21:40] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:21:40] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:21:41] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:21:41] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:21:59] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:21:59] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:22:16] "[37mGET / HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:22:17] "[37mGET /_dash-component-suites/dash_renderer/polyfill@7.v1_8_2m1603676187.8.7.min.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:22:17] "[37mGET /_dash-component-suites/dash_renderer/react@16.v1_8_2m1603676187.13.0.min.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:22:17] "[37mGET /_dash-component-suites/dash_renderer/prop-types@15.v1_8_2m1603676187.7.2.min.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:22:17] "[37mGET /_dash-component-suites/dash_renderer/react-dom@16.v1_8_2m1603676187.13.0.min.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:22:17] "[37mGET /_dash-component-suites/dash_core_components/dash_core_components-shared.v1_12_1m1603676187.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:22:17] "[37mGET /_dash-component-suites/dash_core_components/dash_core_components.v1_12_1m1603676187.min.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:22:17] "[37mGET /_dash-component-suites/dash_table/bundle.v4_10_1m1603676187.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:22:17] "[37mGET /_dash-component-suites/dash_html_components/dash_html_components.v1_1_1m1603676187.min.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:22:17] "[37mGET /_dash-component-suites/dash_renderer/dash_renderer.v1_8_2m1603676187.min.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:22:17] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:22:17] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:22:17] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:22:17] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:22:55] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:22:55] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:23:20] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:23:20] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:23:44] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:23:44] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:24:13] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:24:13] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:24:25] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:24:25] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:24:46] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:24:46] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:25:00] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:25:01] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:25:45] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:25:45] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:26:06] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:26:06] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:26:20] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [03/Nov/2020 16:26:20] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 16:32:50] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 16:32:55] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 16:32:56] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 16:32:57] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 17:47:42] "[37mGET / HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 17:47:42] "[37mGET /_dash-component-suites/dash_renderer/react@16.v1_8_2m1603676187.13.0.min.js HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 17:47:42] "[37mGET /_dash-component-suites/dash_renderer/prop-types@15.v1_8_2m1603676187.7.2.min.js HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 17:47:42] "[37mGET /_dash-component-suites/dash_renderer/polyfill@7.v1_8_2m1603676187.8.7.min.js HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 17:47:42] "[37mGET /_dash-component-suites/dash_renderer/react-dom@16.v1_8_2m1603676187.13.0.min.js HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 17:47:42] "[37mGET /_dash-component-suites/dash_core_components/dash_core_components-shared.v1_12_1m1603676187.js HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 17:47:42] "[37mGET /_dash-component-suites/dash_core_components/dash_core_components.v1_12_1m1603676187.min.js HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 17:47:43] "[37mGET /_dash-component-suites/dash_table/bundle.v4_10_1m1603676187.js HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 17:47:43] "[37mGET /_dash-component-suites/dash_html_components/dash_html_components.v1_1_1m1603676187.min.js HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 17:47:43] "[37mGET /_dash-component-suites/dash_renderer/dash_renderer.v1_8_2m1603676187.min.js HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 17:47:43] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 17:47:43] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 17:47:43] "[37mGET /_favicon.ico?v=1.16.3 HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 17:47:43] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 17:47:43] "[37mGET /_dash-component-suites/dash_table/async-table.v4_10_1m1599150397.js HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 17:47:44] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 17:47:44] "[37mGET /_dash-component-suites/dash_core_components/async-graph.v1_12_1m1600286997.js HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 17:47:44] "[37mGET /_dash-component-suites/dash_core_components/async-plotlyjs.v1_12_1m1600286997.js HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 17:47:53] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 17:47:54] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 17:47:57] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 17:47:57] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 20:55:29] "[37mGET / HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 20:55:29] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 20:55:29] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 20:55:29] "[37mGET /_favicon.ico?v=1.16.3 HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 20:55:29] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 20:55:29] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 20:55:30] "[37mGET /_dash-component-suites/dash_core_components/async-plotlyjs.v1_12_1m1600286997.js HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 20:59:01] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 20:59:01] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 20:59:31] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 20:59:31] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 20:59:46] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 20:59:47] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:04:13] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:04:13] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+[2020-11-03 21:04:24,716] ERROR in app: Exception on /_dash-update-component [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/dash/dash.py", line 1072, in dispatch
+    response.set_data(func(*args, outputs_list=outputs_list))
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/dash/dash.py", line 1007, in add_context
+    output_value = func(*args, **kwargs)  # %% callback invoked %%
+  File "app.py", line 117, in update_table
+    dff = dff.loc[dff[col_name].str.contains(filter_value)]
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/pandas/core/strings.py", line 2001, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/pandas/core/strings.py", line 2824, in contains
+    result = str_contains(
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/pandas/core/strings.py", line 439, in str_contains
+    regex = re.compile(pat, flags=flags)
+  File "/usr/lib/python3.8/re.py", line 252, in compile
+    return _compile(pattern, flags)
+  File "/usr/lib/python3.8/re.py", line 303, in _compile
+    raise TypeError("first argument must be string or compiled pattern")
+TypeError: first argument must be string or compiled pattern
+24.8.11.13 - - [03/Nov/2020 21:04:24] "[35m[1mPOST /_dash-update-component HTTP/1.1[0m" 500 -
+24.8.11.13 - - [03/Nov/2020 21:05:21] "[37mGET / HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:05:21] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:05:21] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:05:21] "[37mGET /_favicon.ico?v=1.16.3 HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:05:21] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:05:22] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:05:41] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:05:41] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:05:44] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:05:44] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:06:08] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:06:08] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:06:11] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:06:11] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:06:22] "[37mGET / HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:06:22] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:06:22] "[37mGET /_favicon.ico?v=1.16.3 HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:06:22] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:06:22] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:06:22] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:06:48] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:06:48] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:06:52] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:06:52] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:06:54] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:06:54] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:06:59] "[37mGET / HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:06:59] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:06:59] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:06:59] "[37mGET /_favicon.ico?v=1.16.3 HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:07:00] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:07:00] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:07:10] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:07:10] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:07:28] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [03/Nov/2020 21:07:29] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+97.122.222.109 - - [03/Nov/2020 21:39:23] "[37mGET / HTTP/1.1[0m" 200 -
+97.122.222.109 - - [03/Nov/2020 21:39:24] "[37mGET /_dash-component-suites/dash_renderer/react@16.v1_8_2m1603676187.13.0.min.js HTTP/1.1[0m" 200 -
+97.122.222.109 - - [03/Nov/2020 21:39:24] "[37mGET /_dash-component-suites/dash_renderer/prop-types@15.v1_8_2m1603676187.7.2.min.js HTTP/1.1[0m" 200 -
+97.122.222.109 - - [03/Nov/2020 21:39:24] "[37mGET /_dash-component-suites/dash_renderer/polyfill@7.v1_8_2m1603676187.8.7.min.js HTTP/1.1[0m" 200 -
+97.122.222.109 - - [03/Nov/2020 21:39:24] "[37mGET /_dash-component-suites/dash_renderer/react-dom@16.v1_8_2m1603676187.13.0.min.js HTTP/1.1[0m" 200 -
+97.122.222.109 - - [03/Nov/2020 21:39:24] "[37mGET /_dash-component-suites/dash_core_components/dash_core_components-shared.v1_12_1m1603676187.js HTTP/1.1[0m" 200 -
+97.122.222.109 - - [03/Nov/2020 21:39:24] "[37mGET /_dash-component-suites/dash_core_components/dash_core_components.v1_12_1m1603676187.min.js HTTP/1.1[0m" 200 -
+97.122.222.109 - - [03/Nov/2020 21:39:24] "[37mGET /_dash-component-suites/dash_table/bundle.v4_10_1m1603676187.js HTTP/1.1[0m" 200 -
+97.122.222.109 - - [03/Nov/2020 21:39:24] "[37mGET /_dash-component-suites/dash_html_components/dash_html_components.v1_1_1m1603676187.min.js HTTP/1.1[0m" 200 -
+97.122.222.109 - - [03/Nov/2020 21:39:24] "[37mGET /_dash-component-suites/dash_renderer/dash_renderer.v1_8_2m1603676187.min.js HTTP/1.1[0m" 200 -
+97.122.222.109 - - [03/Nov/2020 21:39:24] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+97.122.222.109 - - [03/Nov/2020 21:39:24] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+97.122.222.109 - - [03/Nov/2020 21:39:24] "[37mGET /_favicon.ico?v=1.16.3 HTTP/1.1[0m" 200 -
+97.122.222.109 - - [03/Nov/2020 21:39:24] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+97.122.222.109 - - [03/Nov/2020 21:39:24] "[37mGET /_dash-component-suites/dash_table/async-table.v4_10_1m1599150397.js HTTP/1.1[0m" 200 -
+97.122.222.109 - - [03/Nov/2020 21:39:25] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+97.122.222.109 - - [03/Nov/2020 21:39:25] "[37mGET /_dash-component-suites/dash_core_components/async-graph.v1_12_1m1600286997.js HTTP/1.1[0m" 200 -
+97.122.222.109 - - [03/Nov/2020 21:39:25] "[37mGET /_dash-component-suites/dash_core_components/async-plotlyjs.v1_12_1m1600286997.js HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 22:39:10] "[37mGET / HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 22:39:11] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 22:39:11] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 22:39:11] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 22:39:11] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 22:39:21] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 22:39:21] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 22:39:30] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 22:39:30] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 22:43:25] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 22:43:25] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 22:44:55] "[37mGET / HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 22:44:55] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 22:44:55] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 22:44:55] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 22:44:55] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 22:45:03] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 22:45:03] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 22:45:13] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 22:45:13] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 22:45:16] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 22:45:16] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 22:45:23] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [03/Nov/2020 22:45:23] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+193.93.62.22 - - [03/Nov/2020 22:50:29] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+193.93.62.22 - - [03/Nov/2020 22:50:29] "[35m[1m  /*à     Cookie: mstshash=Administr[0m" HTTPStatus.BAD_REQUEST -
+108.62.235.136 - - [03/Nov/2020 23:03:17] "[37mGET / HTTP/1.1[0m" 200 -
+108.62.235.136 - - [03/Nov/2020 23:03:22] "[37mGET /_dash-component-suites/dash_renderer/polyfill@7.v1_8_2m1603676187.8.7.min.js HTTP/1.1[0m" 200 -
+108.62.235.136 - - [03/Nov/2020 23:03:22] "[37mGET /_dash-component-suites/dash_renderer/react@16.v1_8_2m1603676187.13.0.min.js HTTP/1.1[0m" 200 -
+108.62.235.136 - - [03/Nov/2020 23:03:22] "[37mGET /_dash-component-suites/dash_renderer/prop-types@15.v1_8_2m1603676187.7.2.min.js HTTP/1.1[0m" 200 -
+108.62.235.136 - - [03/Nov/2020 23:03:22] "[37mGET /_dash-component-suites/dash_renderer/react-dom@16.v1_8_2m1603676187.13.0.min.js HTTP/1.1[0m" 200 -
+108.62.235.136 - - [03/Nov/2020 23:03:22] "[37mGET /_dash-component-suites/dash_core_components/dash_core_components-shared.v1_12_1m1603676187.js HTTP/1.1[0m" 200 -
+108.62.235.136 - - [03/Nov/2020 23:03:22] "[37mGET /_dash-component-suites/dash_core_components/dash_core_components.v1_12_1m1603676187.min.js HTTP/1.1[0m" 200 -
+108.62.235.136 - - [03/Nov/2020 23:03:22] "[37mGET /_dash-component-suites/dash_table/bundle.v4_10_1m1603676187.js HTTP/1.1[0m" 200 -
+108.62.235.136 - - [03/Nov/2020 23:03:22] "[37mGET /_dash-component-suites/dash_html_components/dash_html_components.v1_1_1m1603676187.min.js HTTP/1.1[0m" 200 -
+108.62.235.136 - - [03/Nov/2020 23:03:22] "[37mGET /_dash-component-suites/dash_renderer/dash_renderer.v1_8_2m1603676187.min.js HTTP/1.1[0m" 200 -
+108.62.235.136 - - [03/Nov/2020 23:03:27] "[37mGET /_favicon.ico?v=1.16.3 HTTP/1.1[0m" 200 -
+108.62.235.136 - - [03/Nov/2020 23:03:27] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+108.62.235.136 - - [03/Nov/2020 23:03:27] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+108.62.235.136 - - [03/Nov/2020 23:03:27] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+108.62.235.136 - - [03/Nov/2020 23:03:27] "[37mGET /_dash-component-suites/dash_table/async-table.v4_10_1m1599150397.js HTTP/1.1[0m" 200 -
+108.62.235.136 - - [03/Nov/2020 23:03:28] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+108.62.235.136 - - [03/Nov/2020 23:03:29] "[37mGET /_dash-component-suites/dash_core_components/async-graph.v1_12_1m1600286997.js HTTP/1.1[0m" 200 -
+108.62.235.136 - - [03/Nov/2020 23:03:29] "[37mGET /_dash-component-suites/dash_core_components/async-plotlyjs.v1_12_1m1600286997.js HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 23:04:03] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [03/Nov/2020 23:04:03] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [04/Nov/2020 16:57:45] "[37mGET / HTTP/1.1[0m" 200 -
+73.247.70.144 - - [04/Nov/2020 16:57:45] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+73.247.70.144 - - [04/Nov/2020 16:57:45] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+73.247.70.144 - - [04/Nov/2020 16:57:45] "[37mGET /_favicon.ico?v=1.16.3 HTTP/1.1[0m" 200 -
+73.247.70.144 - - [04/Nov/2020 16:57:45] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [04/Nov/2020 16:57:46] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [04/Nov/2020 16:57:46] "[37mGET /_dash-component-suites/dash_core_components/async-plotlyjs.v1_12_1m1600286997.js HTTP/1.1[0m" 200 -
+Dash is running on http://0.0.0.0:8049/
+
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://0.0.0.0:8049/ (Press CTRL+C to quit)
+73.247.70.144 - - [05/Nov/2020 06:38:24] "[37mGET / HTTP/1.1[0m" 200 -
+73.247.70.144 - - [05/Nov/2020 06:38:24] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+73.247.70.144 - - [05/Nov/2020 06:38:24] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+73.247.70.144 - - [05/Nov/2020 06:38:24] "[37mGET /_favicon.ico?v=1.16.3 HTTP/1.1[0m" 200 -
+73.247.70.144 - - [05/Nov/2020 06:38:24] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [05/Nov/2020 06:38:25] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+Dash is running on http://0.0.0.0:8049/
+
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://0.0.0.0:8049/ (Press CTRL+C to quit)
+73.247.70.144 - - [05/Nov/2020 06:40:45] "[37mGET / HTTP/1.1[0m" 200 -
+73.247.70.144 - - [05/Nov/2020 06:40:45] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+73.247.70.144 - - [05/Nov/2020 06:40:45] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+73.247.70.144 - - [05/Nov/2020 06:40:45] "[37mGET /_favicon.ico?v=1.16.3 HTTP/1.1[0m" 200 -
+73.247.70.144 - - [05/Nov/2020 06:40:45] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [05/Nov/2020 06:40:46] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+Dash is running on http://0.0.0.0:8049/
+
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://0.0.0.0:8049/ (Press CTRL+C to quit)
+73.247.70.144 - - [05/Nov/2020 06:49:07] "[37mGET / HTTP/1.1[0m" 200 -
+73.247.70.144 - - [05/Nov/2020 06:49:07] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+73.247.70.144 - - [05/Nov/2020 06:49:07] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+73.247.70.144 - - [05/Nov/2020 06:49:07] "[37mGET /_favicon.ico?v=1.16.3 HTTP/1.1[0m" 200 -
+73.247.70.144 - - [05/Nov/2020 06:49:07] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [05/Nov/2020 06:49:08] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:04:29] "[37mGET / HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:04:30] "[37mGET /_dash-component-suites/dash_renderer/react@16.v1_8_2m1603676187.13.0.min.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:04:30] "[37mGET /_dash-component-suites/dash_renderer/prop-types@15.v1_8_2m1603676187.7.2.min.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:04:30] "[37mGET /_dash-component-suites/dash_renderer/polyfill@7.v1_8_2m1603676187.8.7.min.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:04:30] "[37mGET /_dash-component-suites/dash_html_components/dash_html_components.v1_1_1m1603676187.min.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:04:30] "[37mGET /_dash-component-suites/dash_renderer/react-dom@16.v1_8_2m1603676187.13.0.min.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:04:30] "[37mGET /_dash-component-suites/dash_core_components/dash_core_components.v1_12_1m1603676187.min.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:04:30] "[37mGET /_dash-component-suites/dash_core_components/dash_core_components-shared.v1_12_1m1603676187.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:04:30] "[37mGET /_dash-component-suites/dash_table/bundle.v4_10_1m1603676187.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:04:30] "[37mGET /_dash-component-suites/dash_renderer/dash_renderer.v1_8_2m1603676187.min.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:04:30] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:04:30] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:04:30] "[37mGET /_favicon.ico?v=1.16.3 HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:04:30] "[37mGET /_dash-component-suites/dash_table/async-table.v4_10_1m1599150397.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:04:30] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:04:32] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:04:32] "[37mGET /_dash-component-suites/dash_core_components/async-graph.v1_12_1m1600286997.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:04:32] "[37mGET /_dash-component-suites/dash_core_components/async-plotlyjs.v1_12_1m1600286997.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:05:52] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:05:53] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:07] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:08] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:36] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:37] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:37] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:37] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:38] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:38] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:38] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:38] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:38] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:38] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:39] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:39] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:39] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:39] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:39] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:39] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:40] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:42] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:42] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:42] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:42] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:42] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:42] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:43] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:43] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:43] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:43] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:43] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:43] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:43] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:44] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:44] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:44] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:45] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:50] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:06:51] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:12:27] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:12:28] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:12:40] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:12:41] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:12:51] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:12:52] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:12:58] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 14:12:59] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [05/Nov/2020 14:37:37] "[37mGET / HTTP/1.1[0m" 200 -
+73.247.70.144 - - [05/Nov/2020 14:37:37] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+73.247.70.144 - - [05/Nov/2020 14:37:37] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+73.247.70.144 - - [05/Nov/2020 14:37:37] "[37mGET /_favicon.ico?v=1.16.3 HTTP/1.1[0m" 200 -
+73.247.70.144 - - [05/Nov/2020 14:37:37] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [05/Nov/2020 14:37:38] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [05/Nov/2020 14:45:40] "[37mGET / HTTP/1.1[0m" 200 -
+24.8.11.13 - - [05/Nov/2020 14:45:41] "[37mGET /_dash-component-suites/dash_renderer/react@16.v1_8_2m1603676187.13.0.min.js HTTP/1.1[0m" 200 -
+24.8.11.13 - - [05/Nov/2020 14:45:41] "[37mGET /_dash-component-suites/dash_renderer/polyfill@7.v1_8_2m1603676187.8.7.min.js HTTP/1.1[0m" 200 -
+24.8.11.13 - - [05/Nov/2020 14:45:41] "[37mGET /_dash-component-suites/dash_renderer/prop-types@15.v1_8_2m1603676187.7.2.min.js HTTP/1.1[0m" 200 -
+24.8.11.13 - - [05/Nov/2020 14:45:41] "[37mGET /_dash-component-suites/dash_renderer/react-dom@16.v1_8_2m1603676187.13.0.min.js HTTP/1.1[0m" 200 -
+24.8.11.13 - - [05/Nov/2020 14:45:41] "[37mGET /_dash-component-suites/dash_html_components/dash_html_components.v1_1_1m1603676187.min.js HTTP/1.1[0m" 200 -
+24.8.11.13 - - [05/Nov/2020 14:45:41] "[37mGET /_dash-component-suites/dash_core_components/dash_core_components.v1_12_1m1603676187.min.js HTTP/1.1[0m" 200 -
+24.8.11.13 - - [05/Nov/2020 14:45:41] "[37mGET /_dash-component-suites/dash_core_components/dash_core_components-shared.v1_12_1m1603676187.js HTTP/1.1[0m" 200 -
+24.8.11.13 - - [05/Nov/2020 14:45:41] "[37mGET /_dash-component-suites/dash_table/bundle.v4_10_1m1603676187.js HTTP/1.1[0m" 200 -
+24.8.11.13 - - [05/Nov/2020 14:45:41] "[37mGET /_dash-component-suites/dash_renderer/dash_renderer.v1_8_2m1603676187.min.js HTTP/1.1[0m" 200 -
+24.8.11.13 - - [05/Nov/2020 14:45:41] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+24.8.11.13 - - [05/Nov/2020 14:45:41] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+24.8.11.13 - - [05/Nov/2020 14:45:41] "[37mGET /_favicon.ico?v=1.16.3 HTTP/1.1[0m" 200 -
+24.8.11.13 - - [05/Nov/2020 14:45:41] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [05/Nov/2020 14:45:41] "[37mGET /_dash-component-suites/dash_table/async-table.v4_10_1m1599150397.js HTTP/1.1[0m" 200 -
+24.8.11.13 - - [05/Nov/2020 14:45:43] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+24.8.11.13 - - [05/Nov/2020 14:45:43] "[37mGET /_dash-component-suites/dash_core_components/async-graph.v1_12_1m1600286997.js HTTP/1.1[0m" 200 -
+24.8.11.13 - - [05/Nov/2020 14:45:43] "[37mGET /_dash-component-suites/dash_core_components/async-plotlyjs.v1_12_1m1600286997.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 15:03:10] "[37mGET / HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 15:03:10] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 15:03:10] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 15:03:11] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 15:03:12] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 15:03:27] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [05/Nov/2020 15:03:28] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [06/Nov/2020 01:40:00] "[37mGET / HTTP/1.1[0m" 200 -
+73.247.70.144 - - [06/Nov/2020 01:40:00] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+73.247.70.144 - - [06/Nov/2020 01:40:00] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+73.247.70.144 - - [06/Nov/2020 01:40:00] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [06/Nov/2020 01:40:01] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [06/Nov/2020 01:40:01] "[37mGET /_dash-component-suites/dash_core_components/async-plotlyjs.v1_12_1m1600286997.js HTTP/1.1[0m" 200 -
+73.247.70.144 - - [06/Nov/2020 01:40:50] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [06/Nov/2020 01:40:51] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [06/Nov/2020 02:05:44] "[37mGET / HTTP/1.1[0m" 200 -
+73.247.70.144 - - [06/Nov/2020 02:05:44] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+73.247.70.144 - - [06/Nov/2020 02:05:44] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+73.247.70.144 - - [06/Nov/2020 02:05:44] "[37mGET /_favicon.ico?v=1.16.3 HTTP/1.1[0m" 200 -
+73.247.70.144 - - [06/Nov/2020 02:05:45] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [06/Nov/2020 02:05:45] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [06/Nov/2020 02:06:25] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [06/Nov/2020 02:06:25] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+Dash is running on http://0.0.0.0:8049/
+
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://0.0.0.0:8049/ (Press CTRL+C to quit)
+73.247.70.144 - - [06/Nov/2020 02:39:03] "[37mGET / HTTP/1.1[0m" 200 -
+73.247.70.144 - - [06/Nov/2020 02:39:03] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+73.247.70.144 - - [06/Nov/2020 02:39:03] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+73.247.70.144 - - [06/Nov/2020 02:39:03] "[37mGET /_favicon.ico?v=1.16.3 HTTP/1.1[0m" 200 -
+73.247.70.144 - - [06/Nov/2020 02:39:03] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [06/Nov/2020 02:39:05] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [06/Nov/2020 03:10:18] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [06/Nov/2020 03:10:19] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [06/Nov/2020 03:53:19] "[37mGET / HTTP/1.1[0m" 200 -
+76.120.107.204 - - [06/Nov/2020 03:53:19] "[37mGET /_dash-component-suites/dash_renderer/polyfill@7.v1_8_2m1603676187.8.7.min.js HTTP/1.1[0m" 200 -
+76.120.107.204 - - [06/Nov/2020 03:53:19] "[37mGET /_dash-component-suites/dash_renderer/react@16.v1_8_2m1603676187.13.0.min.js HTTP/1.1[0m" 200 -
+76.120.107.204 - - [06/Nov/2020 03:53:19] "[37mGET /_dash-component-suites/dash_renderer/prop-types@15.v1_8_2m1603676187.7.2.min.js HTTP/1.1[0m" 200 -
+76.120.107.204 - - [06/Nov/2020 03:53:19] "[37mGET /_dash-component-suites/dash_renderer/react-dom@16.v1_8_2m1603676187.13.0.min.js HTTP/1.1[0m" 200 -
+76.120.107.204 - - [06/Nov/2020 03:53:19] "[37mGET /_dash-component-suites/dash_core_components/dash_core_components-shared.v1_12_1m1603676187.js HTTP/1.1[0m" 200 -
+76.120.107.204 - - [06/Nov/2020 03:53:19] "[37mGET /_dash-component-suites/dash_core_components/dash_core_components.v1_12_1m1603676187.min.js HTTP/1.1[0m" 200 -
+76.120.107.204 - - [06/Nov/2020 03:53:19] "[37mGET /_dash-component-suites/dash_table/bundle.v4_10_1m1603676187.js HTTP/1.1[0m" 200 -
+76.120.107.204 - - [06/Nov/2020 03:53:19] "[37mGET /_dash-component-suites/dash_html_components/dash_html_components.v1_1_1m1603676187.min.js HTTP/1.1[0m" 200 -
+76.120.107.204 - - [06/Nov/2020 03:53:19] "[37mGET /_dash-component-suites/dash_renderer/dash_renderer.v1_8_2m1603676187.min.js HTTP/1.1[0m" 200 -
+76.120.107.204 - - [06/Nov/2020 03:53:19] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+76.120.107.204 - - [06/Nov/2020 03:53:19] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+76.120.107.204 - - [06/Nov/2020 03:53:19] "[37mGET /_favicon.ico?v=1.16.3 HTTP/1.1[0m" 200 -
+76.120.107.204 - - [06/Nov/2020 03:53:19] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [06/Nov/2020 03:53:19] "[37mGET /_dash-component-suites/dash_table/async-table.v4_10_1m1599150397.js HTTP/1.1[0m" 200 -
+76.120.107.204 - - [06/Nov/2020 03:53:21] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+76.120.107.204 - - [06/Nov/2020 03:53:21] "[37mGET /_dash-component-suites/dash_core_components/async-graph.v1_12_1m1600286997.js HTTP/1.1[0m" 200 -
+76.120.107.204 - - [06/Nov/2020 03:53:21] "[37mGET /_dash-component-suites/dash_core_components/async-plotlyjs.v1_12_1m1600286997.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [06/Nov/2020 14:17:07] "[37mGET / HTTP/1.1[0m" 200 -
+146.115.74.249 - - [06/Nov/2020 14:17:07] "[37mGET /_dash-component-suites/dash_renderer/polyfill@7.v1_8_2m1603676187.8.7.min.js HTTP/1.1[0m" 200 -
+146.115.74.249 - - [06/Nov/2020 14:17:08] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+146.115.74.249 - - [06/Nov/2020 14:17:08] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+146.115.74.249 - - [06/Nov/2020 14:17:08] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [06/Nov/2020 14:17:09] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [06/Nov/2020 14:24:59] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+146.115.74.249 - - [06/Nov/2020 14:25:00] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [06/Nov/2020 17:40:43] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+73.247.70.144 - - [06/Nov/2020 17:40:44] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+45.146.164.231 - - [07/Nov/2020 23:33:51] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+45.146.164.231 - - [07/Nov/2020 23:33:51] "[35m[1m  /*à     Cookie: mstshash=Administr[0m" HTTPStatus.BAD_REQUEST -
+Dash is running on http://0.0.0.0:8049/
+
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://0.0.0.0:8049/ (Press CTRL+C to quit)
+107.87.139.205 - - [14/Jan/2021 16:04:25] "[37mGET / HTTP/1.1[0m" 200 -
+107.87.139.205 - - [14/Jan/2021 16:04:26] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+107.87.139.205 - - [14/Jan/2021 16:04:26] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+107.87.139.205 - - [14/Jan/2021 16:04:26] "[37mGET /_favicon.ico?v=1.18.1 HTTP/1.1[0m" 200 -
+107.87.139.205 - - [14/Jan/2021 16:04:26] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+107.87.139.205 - - [14/Jan/2021 16:04:28] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+172.58.175.108 - - [15/Jan/2021 03:28:51] "[37mGET / HTTP/1.1[0m" 200 -
+172.58.175.108 - - [15/Jan/2021 03:28:51] "[37mGET /_dash-component-suites/dash_renderer/polyfill@7.v1_8_3m1610639980.8.7.min.js HTTP/1.1[0m" 200 -
+172.58.175.108 - - [15/Jan/2021 03:28:51] "[37mGET /_dash-component-suites/dash_renderer/react-dom@16.v1_8_3m1610639980.14.0.min.js HTTP/1.1[0m" 200 -
+172.58.175.108 - - [15/Jan/2021 03:28:51] "[37mGET /_dash-component-suites/dash_renderer/dash_renderer.v1_8_3m1610639980.min.js HTTP/1.1[0m" 200 -
+172.58.175.108 - - [15/Jan/2021 03:28:51] "[37mGET /_dash-component-suites/dash_core_components/dash_core_components.v1_14_1m1610639980.min.js HTTP/1.1[0m" 200 -
+172.58.175.108 - - [15/Jan/2021 03:28:52] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+172.58.175.108 - - [15/Jan/2021 03:28:52] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+172.58.175.108 - - [15/Jan/2021 03:28:52] "[37mGET /_favicon.ico?v=1.18.1 HTTP/1.1[0m" 200 -
+172.58.175.108 - - [15/Jan/2021 03:28:53] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+172.58.175.108 - - [15/Jan/2021 03:28:53] "[37mGET /_dash-component-suites/dash_table/async-table.v4_11_1m1607369765.js HTTP/1.1[0m" 200 -
+172.58.175.108 - - [15/Jan/2021 03:28:54] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+172.58.175.108 - - [15/Jan/2021 03:28:55] "[37mGET /_dash-component-suites/dash_core_components/async-plotlyjs.v1_14_1m1607534654.js HTTP/1.1[0m" 200 -
+194.26.29.76 - - [19/Jan/2021 16:46:46] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+194.26.29.76 - - [19/Jan/2021 16:46:46] "[35m[1m  /*à     Cookie: mstshash=Administr[0m" HTTPStatus.BAD_REQUEST -
+94.232.46.45 - - [22/Jan/2021 13:26:41] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+94.232.46.45 - - [22/Jan/2021 13:26:41] "[35m[1m  /*à     Cookie: mstshash=Administr[0m" HTTPStatus.BAD_REQUEST -
+94.232.46.45 - - [22/Jan/2021 14:15:57] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+94.232.46.45 - - [22/Jan/2021 14:15:57] "[35m[1m  /*à     Cookie: mstshash=Administr[0m" HTTPStatus.BAD_REQUEST -
+89.248.165.63 - - [22/Jan/2021 14:36:12] code 400, message Bad request syntax ('\x03\x00\x00\x13\x0eà\x00\x00\x00\x00\x00\x01\x00\x08\x00\x02\x00\x00\x00')
+89.248.165.63 - - [22/Jan/2021 14:36:12] "[35m[1m  à          [0m" HTTPStatus.BAD_REQUEST -
+94.232.46.45 - - [22/Jan/2021 14:59:54] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+94.232.46.45 - - [22/Jan/2021 14:59:54] "[35m[1m  /*à     Cookie: mstshash=Administr[0m" HTTPStatus.BAD_REQUEST -
+45.141.87.43 - - [31/Jan/2021 17:20:12] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+45.141.87.43 - - [31/Jan/2021 17:20:12] "[35m[1m  /*à     Cookie: mstshash=Administr[0m" HTTPStatus.BAD_REQUEST -
+172.58.170.196 - - [04/Feb/2021 21:13:12] "[37mGET / HTTP/1.1[0m" 200 -
+172.58.170.196 - - [04/Feb/2021 21:13:12] "[37mGET /_dash-component-suites/dash_renderer/polyfill@7.v1_8_3m1610639980.8.7.min.js HTTP/1.1[0m" 200 -
+172.58.170.196 - - [04/Feb/2021 21:13:12] "[37mGET /_dash-component-suites/dash_renderer/prop-types@15.v1_8_3m1610639980.7.2.min.js HTTP/1.1[0m" 200 -
+172.58.170.196 - - [04/Feb/2021 21:13:12] "[37mGET /_dash-component-suites/dash_renderer/react@16.v1_8_3m1610639980.14.0.min.js HTTP/1.1[0m" 200 -
+172.58.170.196 - - [04/Feb/2021 21:13:12] "[37mGET /_dash-component-suites/dash_table/bundle.v4_11_1m1610639980.js HTTP/1.1[0m" 200 -
+172.58.170.196 - - [04/Feb/2021 21:13:12] "[37mGET /_dash-component-suites/dash_renderer/react-dom@16.v1_8_3m1610639980.14.0.min.js HTTP/1.1[0m" 200 -
+172.58.170.196 - - [04/Feb/2021 21:13:12] "[37mGET /_dash-component-suites/dash_html_components/dash_html_components.v1_1_1m1610639980.min.js HTTP/1.1[0m" 200 -
+172.58.170.196 - - [04/Feb/2021 21:13:12] "[37mGET /_dash-component-suites/dash_core_components/dash_core_components-shared.v1_14_1m1610639980.js HTTP/1.1[0m" 200 -
+172.58.170.196 - - [04/Feb/2021 21:13:12] "[37mGET /_dash-component-suites/dash_renderer/dash_renderer.v1_8_3m1610639980.min.js HTTP/1.1[0m" 200 -
+172.58.170.196 - - [04/Feb/2021 21:13:12] "[37mGET /_dash-component-suites/dash_core_components/dash_core_components.v1_14_1m1610639980.min.js HTTP/1.1[0m" 200 -
+172.58.170.196 - - [04/Feb/2021 21:13:13] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+172.58.170.196 - - [04/Feb/2021 21:13:13] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+172.58.170.196 - - [04/Feb/2021 21:13:13] "[37mGET /_favicon.ico?v=1.18.1 HTTP/1.1[0m" 200 -
+172.58.170.196 - - [04/Feb/2021 21:13:13] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+172.58.170.196 - - [04/Feb/2021 21:13:13] "[37mGET /_dash-component-suites/dash_table/async-table.v4_11_1m1607369765.js HTTP/1.1[0m" 200 -
+172.58.170.196 - - [04/Feb/2021 21:13:15] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+172.58.170.196 - - [04/Feb/2021 21:13:15] "[37mGET /_dash-component-suites/dash_core_components/async-graph.v1_14_1m1607534654.js HTTP/1.1[0m" 200 -
+172.58.170.196 - - [04/Feb/2021 21:13:15] "[37mGET /_dash-component-suites/dash_core_components/async-plotlyjs.v1_14_1m1607534654.js HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 21:24:22] "[37mGET / HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 21:24:23] "[37mGET /_dash-component-suites/dash_renderer/polyfill@7.v1_8_3m1610639980.8.7.min.js HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 21:24:23] "[37mGET /_dash-component-suites/dash_renderer/react@16.v1_8_3m1610639980.14.0.min.js HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 21:24:23] "[37mGET /_dash-component-suites/dash_table/bundle.v4_11_1m1610639980.js HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 21:24:23] "[37mGET /_dash-component-suites/dash_html_components/dash_html_components.v1_1_1m1610639980.min.js HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 21:24:23] "[37mGET /_dash-component-suites/dash_renderer/react-dom@16.v1_8_3m1610639980.14.0.min.js HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 21:24:23] "[37mGET /_dash-component-suites/dash_renderer/prop-types@15.v1_8_3m1610639980.7.2.min.js HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 21:24:23] "[37mGET /_dash-component-suites/dash_core_components/dash_core_components-shared.v1_14_1m1610639980.js HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 21:24:23] "[37mGET /_dash-component-suites/dash_core_components/dash_core_components.v1_14_1m1610639980.min.js HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 21:24:23] "[37mGET /_dash-component-suites/dash_renderer/dash_renderer.v1_8_3m1610639980.min.js HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 21:24:23] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 21:24:23] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 21:24:23] "[37mGET /_favicon.ico?v=1.18.1 HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 21:24:23] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 21:24:23] "[37mGET /_dash-component-suites/dash_table/async-table.v4_11_1m1607369765.js HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 21:24:25] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 21:24:25] "[37mGET /_dash-component-suites/dash_core_components/async-graph.v1_14_1m1607534654.js HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 21:24:25] "[37mGET /_dash-component-suites/dash_core_components/async-plotlyjs.v1_14_1m1607534654.js HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 21:24:30] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 21:24:31] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 21:25:44] "[37mGET / HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 21:25:44] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 21:25:44] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 21:25:44] "[37mGET /_favicon.ico?v=1.18.1 HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 21:25:44] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 21:25:46] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 22:00:37] "[37mGET / HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 22:00:37] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 22:00:37] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 22:00:37] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 22:00:39] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 22:00:41] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 22:00:43] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 22:00:43] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 22:00:44] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 22:00:44] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+50.68.124.206 - - [04/Feb/2021 22:00:46] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
