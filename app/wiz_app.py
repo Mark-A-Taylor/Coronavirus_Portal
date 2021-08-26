@@ -456,7 +456,7 @@ def update_pca(meta):
     if meta == 0:
         shapeby = 'Day Post-Infection'
     elif meta == 3:
-        shapeby = 'Viral Strado'
+        shapeby = 'Viral Strain'
     elif meta == 5:
         shapeby = 'Viral Dose'
     elif meta == 7:
@@ -506,23 +506,23 @@ CA_layout = html.Div([
     html.Br(),
     html.Br(),
 
-    html.Div(dcc.Graph(figure=dashbio.Clustergram(
-        data=cdf.loc[rows].values,
-        column_labels=columns,
-        row_labels=rows,
-        color_threshold={
-            'row': 250,
-            'col': 700
-        },
-        hidden_labels='row',
-        height=800,
-        width=700
-        , color_map=[
-            [0.0, '#0099ff'],  # blue
-            [0.5, '#000000'],  # black
-            [1.0, '#ffff00']  # yellow
-        ]
-    )))
+#    html.Div(dcc.Graph(figure=dashbio.Clustergram(
+#        data=cdf.loc[rows].values,
+#        column_labels=columns,
+#        row_labels=rows,
+#        color_threshold={
+#            'row': 250,
+#            'col': 700
+#        },
+#        hidden_labels='row',
+#        height=800,
+#        width=700
+#        , color_map=[
+#            [0.0, '#0099ff'],  # blue
+#            [0.5, '#000000'],  # black
+#            [1.0, '#ffff00']  # yellow
+#        ]
+#    )))
 ])
 
 
@@ -545,4 +545,5 @@ def display_page(pathname):
 
 
 if __name__ == '__main__':
-    app.run_server(host='127.0.0.1', port=8047,debug=True)
+    print("running on host 127.0.0.1, port 8047")
+    app.run_server(host='127.0.0.1', port=8047,debug=False)
