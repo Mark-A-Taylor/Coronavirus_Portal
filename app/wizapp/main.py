@@ -172,7 +172,7 @@ def display_page(pathname):
         return index_page
 
 def main(argv):
-    rc = app.run_server(debug=True, processes=1)
+    rc = app.run_server(debug=True, processes=1, port=8047)
     if rc:
         print('Error running server')
         sys.exit(-2)
