@@ -14,3 +14,4 @@ dependencies:
     - dash_bio
     - flask_caching
     - dash_daq
+    - ipython
