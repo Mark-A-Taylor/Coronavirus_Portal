@@ -171,8 +171,8 @@ def display_page(pathname):
     else:
         return index_page
 
-def main(argv):
-    rc = app.run_server(debug=True, processes=1, port=8047)
+def main():
+    rc = app.run_server(debug=True, processes=1, port=8047,host="127.0.0.1")
     if rc:
         print('Error running server')
         sys.exit(-2)
@@ -181,4 +181,4 @@ if __name__ == '__main__':
     #   print(f"Arguments count: {len(sys.argv)}")
     #   for iii,arg in enumerate(sys.argv):
     #       print(f"Arguments {iii:>6}: {arg}")
-    main(sys.argv[1:])
+    main()
