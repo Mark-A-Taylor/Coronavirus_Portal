@@ -1,0 +1,19 @@
+# for python3
+# conda repos: defaults, r, bioconda, conda-forge
+# ref: https://stackoverflow.com/questions/35245401/combining-conda-environment-yml-with-pip-requirements-txt
+
+name: wizapp
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python>=3.8
+  - pip
+  - pip:
+    - dash
+    - dash_bio
+    - flask_caching
+    - dash_daq
+    - ipython
+    - jupyter
+    - jupyter_contrib_nbextensions
