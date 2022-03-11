@@ -9,7 +9,7 @@ import inspect
 
 # unique to this application
 from app import app
-from pages import pca, clustering, timeseries, logistic, methods, datatable, paper
+from pages import pca, clustering, clustering2, clustering3, timeseries, logistic, methods, datatable, paper
 
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
@@ -74,7 +74,10 @@ index_page = html.Div([
                     dcc.Markdown('''
                         **Unsupervised Machine Learning**  
                         [Principal Component Analysis](/pages/pca)  
-                        [Agglomerative Hierarchical Clustering](/pages/clustering)  
+                        Agglomerative Hierarchical Clustering:  
+                        [74 Biosets](/pages/clustering),  
+                        [Bex2 & Cxcl10 cluster](/pages/clustering2) and   
+                        [Cell-cycle metasignature](/pages/clustering3)
                     ''')], style={'margin-right':10,'margin-left':10},
                 ),
             ], style={'display':'inline-block','border': '2px black solid','margin-right':10,'verticalAlign':'middle'}),
@@ -162,6 +165,10 @@ def display_page(pathname):
         return datatable.layout
     elif pathname == '/pages/clustering':
         return clustering.layout
+    elif pathname == '/pages/clustering2':
+        return clustering2.layout
+    elif pathname == '/pages/clustering3':
+        return clustering3.layout
     elif pathname == '/pages/timeseries':
         return timeseries.layout
     elif pathname == '/pages/logistic':
@@ -172,8 +179,8 @@ def display_page(pathname):
         return index_page
 
 def main(argv):
-    #   rc = app.run_server(debug=True, processes=1, port=8047)
-    rc = app.run_server(host='0.0.0.0', debug=False, port=8047)
+    rc = app.run_server(debug=True, processes=1, port=8047)
+    #   rc = app.run_server(host='0.0.0.0', debug=False, port=8047)
     if rc:
         print('Error running server')
         sys.exit(-2)
