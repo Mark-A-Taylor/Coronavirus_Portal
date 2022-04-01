@@ -50,13 +50,24 @@ layout = html.Div([
             selected_rows=[],
             #page_action="native",
             #page_current= 0,
+            export_format="csv",
         ),
         #style={'height': 400, 'overflowY': 'scroll'},
         className='six columns',
         style={'display':'inline-block','width':'95%','vertical-align':'start', 'overflowX':'scroll'},
     ),
     html.Br(),
-    dcc.Link('Return to Index', href='/')
+    html.Div([
+        html.Button("Download Full Dataset", id="btn-download-txt"),
+        dcc.Download(id="download-text")
+    ]),
+    html.Br(),
+    html.Br(),
+    dcc.Link('Return to Index', href='/'),
+    html.Br(),
+    html.Br(),
+    html.Br(),
+    html.Br(),
 ])
 
 
@@ -99,3 +110,11 @@ def update_table(page_current, page_size, sort_by, filter):
            page_current * page_size: (page_current + 1) * page_size
            ].to_dict('records')
 
+
+@app.callback(
+    Output("download-text", "data"),
+    Input("btn-download-txt", "n_clicks"),
+    prevent_initial_call=True,
+)
+def func(n_clicks):
+    return dcc.send_data_frame(dfw_nozeros.to_csv, "74biosets.csv")

@@ -74,17 +74,17 @@ index_page = html.Div([
                     dcc.Markdown('''
                         **Unsupervised Machine Learning**  
                         [Principal Component Analysis](/pages/pca)  
-                        Agglomerative Hierarchical Clustering:  
-                        [74 Biosets](/pages/clustering),  
-                        [Bex2 & Cxcl10 cluster](/pages/clustering2) and   
-                        [Cell-cycle metasignature](/pages/clustering3)
+                        [Agglomerative Hierarchical Clustering](/pages/clustering)  
                     ''')], style={'margin-right':10,'margin-left':10},
+                    #removed: [Cell-cycle metasignature](/pages/clustering3)
                 ),
             ], style={'display':'inline-block','border': '2px black solid','margin-right':10,'verticalAlign':'middle'}),
             html.Div([
                 html.Center(
                     dcc.Markdown('''
-                        ** [5 Temporal Meta-Signatures](/pages/timeseries) **  
+                        ** 5 Temporal Meta-Signatures **  
+                        [Line Plots](/pages/timeseries)  
+                        [Agglomerative Hierarchical Clustering](/pages/clustering2)  
                     '''), style={'margin-right':10,'margin-left':10},
                 ),
             ], style={'display':'inline-block','border': '2px black solid','margin-right':10,'verticalAlign':'middle'}),
@@ -102,52 +102,61 @@ index_page = html.Div([
     html.Center([
         # begin left block
         html.Div([
-            html.Img(src=app.get_asset_url('downRightArrow.jpg'), style={'height': '140%', 'width':'140%'}),
-        ], style={'display': 'inline-block', 'verticalAlign': 'middle'}), #({,'border':'2px green solid'}),
+            html.Img(src=app.get_asset_url('downRightArrow.jpg'), style={'height': '165%', 'width':'165%'}),
+        ], style={'display': 'inline-block', 'verticalAlign': 'middle','margin-top':20}), #({,'border':'2px green solid'}),
 
         # begin center block
         html.Div([
             html.Div(
-                html.Img(src=app.get_asset_url('triarrow.png'), style={'height': '40%', 'width': '40%'}),
+                html.Img(src=app.get_asset_url('triarrow.png'), style={'height': '40%', 'width': '60%'}),
             ),
             html.Div([
                 html.Div([
-                    html.Center(
-                        dcc.Markdown('''Biomarker   
-                            Similarity  
-                            Profiling '''), style={'margin-right': 5, 'margin-left': 5},
-                    ),
-                ], style={'display': 'inline-block', 'border': '1px black solid', 'margin-right': 5,
-                          'verticalAlign': 'middle'}),
+                    html.Div([
+                        html.Center(
+                            dcc.Markdown('''Similarity Profiling'''), style={'margin-right': 5, 'margin-left': 5},
+                        ),
+                    ], style={'border': '1px black solid', 'verticalAlign': 'middle'}),
+                    html.Div([
+                        html.Img(src=app.get_asset_url('downAngleRightArrow.jpg'), style={'height': '75%', 'width': '75%'}),
+                    ], style={'display': 'inline-block', 'verticalAlign': 'middle'}),
+                ], style ={'display':'inline-block','margin-right':5,'margin-top':5,'verticalAlign':'middle'}
+                ),
                 html.Div([
-                    html.Center(
-                        dcc.Markdown('''Functional   
-                            Enrichment '''), style={'margin-right': 5, 'margin-left': 5},
-                    ),
-                ], style={'display': 'inline-block', 'border': '1px black solid', 'margin-right': 5,
-                          'verticalAlign': 'middle'}),
+                    html.Div([
+                        html.Center(
+                            dcc.Markdown('''Functional Enrichment '''), style={'margin-right': 5, 'margin-left': 5},
+                        ),
+                    ], style={'border': '1px black solid', 'verticalAlign': 'middle'}),
+                    html.Div([
+                        html.Img(src=app.get_asset_url('downArrow.jpg'), style={'height': '75%', 'width': '75%'}),
+                    ], style={'display': 'inline-block', 'verticalAlign': 'middle'}),
+                ], style ={'display':'inline-block','margin-right':5,'margin-top':4,'verticalAlign':'middle'}
+                ),
                 html.Div([
-                    html.Center(
-                        dcc.Markdown('''Compound  
-                        Discovery'''), style={'margin-right': 5, 'margin-left': 5},
-                    ),
-                ], style={'display': 'inline-block', 'border': '1px black solid', 'verticalAlign': 'middle'}),
+                    html.Div([
+                        html.Center(
+                            dcc.Markdown('''Compound Discovery'''), style={'margin-right': 5, 'margin-left': 5},
+                        ),
+                    ], style={'border': '1px black solid', 'verticalAlign': 'middle'}),
+                    html.Div([
+                        html.Img(src=app.get_asset_url('downAngleLeftArrow.jpg'), style={'height': '75%', 'width': '75%'}),
+                    ], style={'display': 'inline-block', 'verticalAlign': 'middle'}),
+                ], style ={'display':'inline-block','margin-right':5,'verticalAlign':'middle'}
+                ),
             ]),
-            html.Div(
-                html.Br(),
-            ),
             html.Div([
                 html.Center(
                     html.H3('Interpretation, Synthesis and Impact'),
                     style={'margin-right': 5, 'margin-left': 5, 'color':'green'},
                 ), ], style={'border': '2px black solid'}),
-        ], style={'display': 'inline-block', 'verticalAlign': 'middle','margin-right':5,'margin-left':35}),
+        ], style={'display': 'inline-block', 'verticalAlign': 'middle','margin-right':15,'margin-left':55}),
         # end center block
 
         # begin right block
         html.Div([
-            html.Img(src=app.get_asset_url('downLeftArrow.jpg'), style={'height': '150%', 'width':'150%'}),
-        ], style={'display': 'inline-block', 'verticalAlign': 'middle'}), #({,'border':'2px green solid'}),
+            html.Img(src=app.get_asset_url('downLeftArrow.jpg'), style={'height': '175%', 'width':'175%'}),
+        ], style={'display': 'inline-block', 'verticalAlign': 'middle','margin-top':20}), #({,'border':'2px green solid'}),
     ],
     ),
 ])

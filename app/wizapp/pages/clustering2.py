@@ -8,7 +8,7 @@ from app import app
 layout = html.Div([
     html.Div([dcc.Link('Return to Index', href='/')],style={'text-align':'right'}),
     html.Center(
-        html.H1('Agglomerative Hierarchical Clusterin: Bex2 & Cxcl10 Cluster '),
+        html.H1('Agglomerative Hierarchical Clustering: 5 Temporal Meta-Signatures'),
     ),
     html.Div([
         dcc.Markdown('''

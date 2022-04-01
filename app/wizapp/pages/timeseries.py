@@ -56,39 +56,49 @@ layout = html.Div([
             style={'display':'inline-block','width':'55%','vertical-align':'start'},
         ),
         html.Div(
-            dash_table.DataTable(
-                id='table-paging-with-graph',
-                columns=[
-                    #{"name": i, "id": i} for i in sorted(gene_ts_mean.columns)
-                    {"name": i, "id": i} for i in gene_ts_mean.columns
-                ],
-                page_current=0,
-                page_size=10,
-                page_action='custom',
-                filter_action='custom',
-                filter_query='',
-                sort_action='custom',
-                sort_mode='multi',
-                sort_by=[],
-                editable=True,
-                #filter_action="native",
-                #sort_action="native",
-                #sort_mode="multi",
-                column_selectable="single",
-                row_selectable="multi",
-                row_deletable=True,
-                selected_columns=[],
-                selected_rows=[],
-                #page_action="native",
-                #page_current= 0,
-            ),
-            #style={'height': 400, 'overflowY': 'scroll'},
+            html.Div([
+                dash_table.DataTable(
+                    id='table-paging-with-graph',
+                    columns=[
+                        #{"name": i, "id": i} for i in sorted(gene_ts_mean.columns)
+                        {"name": i, "id": i} for i in gene_ts_mean.columns
+                    ],
+                    page_current=0,
+                    page_size=10,
+                    page_action='custom',
+                    filter_action='custom',
+                    filter_query='',
+                    sort_action='custom',
+                    sort_mode='multi',
+                    sort_by=[],
+                    editable=True,
+                    #filter_action="native",
+                    #sort_action="native",
+                    #sort_mode="multi",
+                    column_selectable="single",
+                    row_selectable="multi",
+                    row_deletable=True,
+                    selected_columns=[],
+                    selected_rows=[],
+                    #page_action="native",
+                    #page_current= 0,
+                    export_format="csv",
+                ),
+                #style={'height': 400, 'overflowY': 'scroll'},
+                html.Div([
+                    html.Button("Download Full Dataset", id="btn2-download-txt"),
+                    dcc.Download(id="download-text2")
+                ]),
+            ]),
             className='six columns',
-            style={'display':'inline-block','width':'45%','vertical-align':'start'},
+            style={'display': 'inline-block', 'width': '45%', 'vertical-align': 'start'},
         ),
     ]),
     html.Br(),
-    dcc.Link('Return to Index', href='/')
+    dcc.Link('Return to Index', href='/'),
+    html.Br(),
+    html.Br(),
+
 ])
 
 
@@ -194,4 +204,10 @@ def update_graph(rows, error_bar, symbol_size):
 
     )
 
-
+@app.callback(
+    Output("download-text2", "data"),
+    Input("btn2-download-txt", "n_clicks"),
+    prevent_initial_call=True,
+)
+def func2(n_clicks):
+    return dcc.send_data_frame(gene_ts_mean.to_csv, "gene_timeseries.csv")
