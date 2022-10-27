@@ -18,7 +18,7 @@ layout = html.Div([
     html.Br(),
     html.Center(
         html.Iframe(
-                    src=app.get_asset_url("74bs_3bv4_4-5TP_hm.html"),
+                    src=app.get_asset_url("74bs_R4v2_2_hm.html"),
                     style={'height': '1000px', 'width':'98%'},
                    ),
     ),
