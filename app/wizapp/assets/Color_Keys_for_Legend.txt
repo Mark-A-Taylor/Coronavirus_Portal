@@ -1,0 +1,28 @@
+(Color codes are visible when hovering over column side color boxes, 
+	the information below associates color codes with bioset ID)
+
+DPI Colors:
+	0.5 DPI == #E41A1C
+	1 DPI   == #377EB8
+	2 DPI   == #4DAF4A
+	4 DPI   == #984EA3
+	7 DPI   == #FF7F00
+
+Variant Colors:
+	MA15    == #66C2A5
+	MA15g   == #Fc8D62
+	MA15e   == #8DA0CB
+	TOR-2   == #E78AC3
+	IC      == #A6D854
+
+Mouse Age Colors:
+	Old (52wk)     == #8DD3C7
+	Mid (20-23 wk) == #FFFFB3
+	Young (<10 wk) == #BEBADA
+
+Dosage Colors:
+	100,000 PFU == #1B9E77
+	22,000 PFU  == #D95F02
+	10,000 PFU  == #7570B3
+	1,000 PFU   == #E7298A
+	100 PFU     == #2062F9
