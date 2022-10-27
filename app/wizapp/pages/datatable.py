@@ -17,10 +17,16 @@ layout = html.Div([
     html.Div([
         dcc.Markdown(''' 
         The 74 biosets are characterized below including time post-infection, mouse age category,
-        viral strain and dose magnitude. 
-        Explore the data using click-sort on the table columns and
-        and the data filters which support operators (e.g. <, >, <=, !=) and string search (case sensitive).
-        the data filter (case sensitive, e.g. 'Ifn' for interferons). 
+        viral strain and dose magnitude.    
+        > There are 74 biosets to explore using click-sort on the table columns.  
+        > The 'filter data' functionality is available in all of the data columns.  
+        > Input a string in string column to do a case sensitive search, e.g. 'MA15e' in the 'Viral Strain' column.  
+        > Mathematical operators '<', '>', '<=', '>=' and '!=' work in numeric columns, e.g. '>1'
+            in the 'Day Post-Infection' column.   
+        > More information regarding interactivity in the data table can be found on the
+            [Dash Plotly website](https://dash.plotly.com/datatable/interactivity).    
+        > Select 'Export' to download the visible data.  
+        > Select 'Download Full Dataset' to download all the data.  
         '''),
     ]),
 
