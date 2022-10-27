@@ -236,7 +236,7 @@ def calc_data(params):
     #
     fname = inspect.stack()[0][3]
     input_file_folder = './data/'
-    input_file_name = "SARS_CoV_Round4v2_74_Biosets_wZero_Time_Point.txt"
+    input_file_name = "SARS_CoV_Round5.txt"
     filepath_name = input_file_folder + input_file_name
     seventyfour = pd.read_csv(filepath_name, sep='\t', lineterminator='\n')
 
