@@ -19,11 +19,17 @@ layout = html.Div([
     html.H3('5 Temporal Meta-Signature Gene Scores'),
     html.Div([
         dcc.Markdown('''
-        Time series of normalized gene expression scores averaged across 74 Biosets for 0.5, 1, 2, 4 and 7
-        Days Post-Infection (DPI). There are ~10,000 genes to explore using click-sort on the table columns
-        and the data filter which support operators (e.g. <, >, <=, !=) and string search (case sensitive, e.g. 'Ifn' in 'Gene' column to find interferons). 
-        Mouse click on graph legend to suppress/reveal time series for select genes. Hover over the graph
-        data points for more information.
+        Time series of normalized gene expression scores averaged across 74 Biosets for 0.5, 1, 2, 4 and 7 Days Post-Infection (DPI).  
+        > There are ~10,000 genes to explore using click-sort on the table columns.  
+        > Mouse click on graph legend to toggle to suppress/reveal the time series for select genes.  
+        > Hover over a graph data points to trigger a hover box revealing more information regarding that data point.  
+        > The 'filter data' functionality is available in all of the data columns.  
+        > Input a string in 'Gene' column to do a case sensitive search by gene mnemonic, e.g. 'Ifna' or 'fna' to find interferons.  
+        > Mathematical operators '<', '>', '<=', '>=' and '!=' work in numeric columns, e.g. '>95' in the '2 DPI' column to find genes over 95.  
+        > More information regarding interactivity in the data table can be found on the
+            [Dash Plotly website](https://dash.plotly.com/datatable/interactivity).   
+        > Select 'Export' to download the visible data.  
+        > Select 'Download Full Dataset' to download all the data.  
         '''),
     ]),
     html.Div([
