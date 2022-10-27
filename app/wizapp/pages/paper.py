@@ -10,10 +10,16 @@ layout = html.Div([
     ),
     html.Br(),
     html.Center(
-        html.Div([dcc.Markdown('''
-                **TODO: Insert PDF version of the paper here***  
-            ''')],
-            style={'border': '2px black solid','width':'50%'}
+        #        html.Div([dcc.Markdown('''
+        #                **TODO: Insert PDF version of the paper here***  
+        #            ''')],
+        #            style={'border': '2px black solid','width':'50%'}
+        #        ),
+        html.Div(
+            html.Iframe(id="embedded-pdf",
+                        src="/assets/paper_26Aug2022.pdf",
+                        style={'height':'800px','width':'98%'},
+                        )
         ),
     ),
     html.Br(),
