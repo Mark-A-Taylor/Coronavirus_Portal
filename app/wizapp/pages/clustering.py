@@ -34,6 +34,11 @@ layout = html.Div([
     html.Br(),
     html.Div(id='clustering-display-value'),
     html.Br(),
+    html.Div(
+        html.Img(src=app.get_asset_url('heatmapLegend.png'), style={'height':'50%', 'width':'50%'}, id='triarrow'),
+        style={'textAlign':'center'}
+    ),
+    html.Br(),
     dcc.Link('Return to Index', href='/')
 ])
 
