@@ -17,7 +17,7 @@ layout = html.Div([
         Euclidian distance and nearest neighbors cluster agglomeration.  
         > Vertical axis shows all gene names included in the analysis. Genes with data at any four of the five timepoints were selected.  
         > Horizontal axis shows all bioset IDs.   
-        > Horizonal color bars above the heatmap represent the features- days post-infection, viral variant, host age and viral dose (from top to bottom).  
+        > Horizonal color bars above the heatmap represent the features- days post-infection, viral variant, host age and viral dose (from top to bottom).  Related legend is below the heatmap.  
         > Heatmap cells are colored based on direction and magnitude of the gene score for the related bioset.  
         > Hover over a cell to trigger a hover box revealing more information including the gene score.  
         > Hovering also reveals a Plotly Dash control bar in the upper right-hand side with zoom and download options.  
