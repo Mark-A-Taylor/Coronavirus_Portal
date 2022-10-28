@@ -12,8 +12,17 @@ layout = html.Div([
     ),
     html.Div([
         dcc.Markdown('''
-        TODO: User guidance stuff like Vertical axis is ... Horizontal axis is ... Hover over the graph to see ... Left-mouse and drag to
-        zoom in ... etc. ''')
+        Two-way agglomerative hierarchical clustering heatmap of 74 SARSCoV-1 biosets
+        using differential RNA Expression based directional gene scores to calculate
+        Euclidian distance and nearest neighbors cluster agglomeration.  
+        > Vertical axis shows all gene names included in the analysis. Genes with data at any four of the five timepoints were selected.  
+        > Horizontal axis shows all bioset IDs.   
+        > Horizonal color bars above the heatmap represent the features- days post-infection, viral variant, host age and viral dose (from top to bottom).  
+        > Heatmap cells are colored based on direction and magnitude of the gene score for the related bioset.  
+        > Hover over a cell to trigger a hover box revealing more information including the gene score.  
+        > Hovering also reveals a Plotly Dash control bar in the upper right-hand side with zoom and download options.  
+        > Left-mouse click, drag and then release to select an area to zoom.
+        ''')
     ]),
     html.Br(),
     html.Center(
