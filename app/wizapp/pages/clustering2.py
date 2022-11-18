@@ -3,6 +3,8 @@ from dash import html
 from dash.dependencies import Input, Output
 
 from app import app
+import pandas as pd
+#   import glob
 
 
 layout = html.Div([
@@ -30,8 +32,17 @@ layout = html.Div([
         at the time point.  
         > Hover over a cell to trigger a hover box revealing more information including the average gene expression.  
         > Hovering also reveals a Plotly Dash control bar in the upper right-hand side with zoom and download options.  
-        > Left-mouse click, drag and then release to select an area to zoom.
+        > Left-mouse click, drag and then release to select an area to zoom.  
+        
+        Code for generating this heatmap is provided [here](https://github.com/Mark-A-Taylor/Coronavirus_Portal/tree/cv/5_temporal_metasignatures) for
+        readers to explore the data with the Interactive Complex Heatmap R Shiny application,
+        which allows for data sub-setting and additional navigation features.
         ''')
+    ]),
+    html.Br(),
+    html.Div([
+        html.Button("Download Dataset (post clustering)", id="btn-download-cluster2"),
+        dcc.Download(id="download-cluster2")
     ]),
     html.Br(),
     html.Center(
@@ -45,5 +56,19 @@ layout = html.Div([
     html.Br(),
     dcc.Link('Return to Index', href='/')
 ])
+
+@app.callback(
+    Output("download-cluster2", "data"),
+    Input("btn-download-cluster2", "n_clicks"),
+    prevent_initial_call=True,
+)
+def func(n_clicks):
+    input_file_folder2 = '../../5_temporal_metasignatures/'
+    input_file_name2 = "dpi_metaSig_post_cluster_data.csv"
+    #   for filename in glob.iglob(input_file_folder2+'**/**',recursive=True):
+    #       print(filename)
+    filepath_name2 = input_file_folder2 + input_file_name2
+    five = pd.read_csv(filepath_name2, sep=',', lineterminator='\n')
+    return dcc.send_data_frame(five.to_csv, "5_post_cluster.csv")
 
 
