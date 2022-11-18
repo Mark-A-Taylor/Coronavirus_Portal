@@ -1,0 +1,83 @@
+---
+title: "74 biosets heatmap average dpi across 760 genes selected to contain bex2, cxcl10 and all genes from cxcl2 to top of list sorted for most time points (760 genes total)"
+author: "Chase McFarland"
+output: html_notebook
+---
+
+
+```{r}
+## Check if required CRAN packages are installed, and install if not
+cran_packages = c("gplots", "gtools",
+                  "RColorBrewer", "dplyr","BiocManager","shiny", "heatmaply")
+
+#Now load or install&load all
+cran.package.check <- lapply(
+  cran_packages,
+  FUN = function(x) {
+    if (!require(x, character.only = TRUE)) {
+      install.packages(x, dependencies = TRUE)
+      library(x, character.only = TRUE)
+    }
+  }
+)
+
+
+## Check if required Bioconductor packages are installed, and install if not
+bioc_packages = c("ComplexHeatmap", "InteractiveComplexHeatmap")
+
+#Now load or install&load all
+bioc.package.check <- lapply(
+  bioc_packages,
+  FUN = function(x) {
+    if (!require(x, character.only = TRUE)) {
+      BiocManager::install(x, dependencies = TRUE, update = FALSE)
+      library(x, character.only = TRUE)
+    }
+  }
+)
+```
+
+
+```{r}
+#Read raw data file, setwd() to file location
+rawDat = read.csv("3bv2_ave_dpi_genes.csv",TRUE,",")
+row.names(rawDat)=rawDat[,1] #set row names as genes in col 1
+parsedDat = select(rawDat,-1) #delete col 1
+
+colnames(parsedDat) = c("0.5 DPI","1 DPI","2 DPI","4 DPI", "7 DPI") #rename columns
+```
+
+
+```{r}
+#create yellow - black - blue color pallette
+yeBlBu_pal = colorRampPalette(c("blue","blue2","blue3","blue4","black","yellow4","yellow3","yellow2","yellow"))
+```
+
+
+```{r}
+## grabbing both bex2 and cxcl10 columns in one chr vector (THIS WORKS, BUT LIMITS ABILITY TO HAVE MULTIPLE COLUMNS IN ROWSIDECOLS, SHOULD FIGURE THAT OUT FOR THE FUTURE)
+bex2_cxcl10_cols <- unlist(lapply(rownames(parsedDat),function(x){
+  if(grepl("Aass\\b|Hc\\b|Cdh16\\b|Nrn1\\b|Lgi3\\b|Kazald1\\b|Sfrp2\\b|Scgb3a2\\b|Sort1\\b|Scube2\\b|Mm.227768\\b|Ociad2\\b|Scd2\\b|Lrrc17\\b|Bcan\\b|Chia1\\b|Cst8\\b|Pon1\\b|Snhg11\\b|Scgb1c1\\b|AK081614\\b|Bex2\\b|Aox3\\b|Arhgef38\\b|Ces1e\\b|S100g\\b|Myh7\\b|Tril\\b|Atp6v1c2\\b|Mesp1\\b|Fabp1\\b|Ms4a7\\b|Tnc\\b|Lair1\\b|Slc37a2\\b|C3ar1\\b|Saa1\\b|Saa-ps\\b|Cd72\\b|Cxcl13\\b|Pla1a\\b|Saa3\\b|Ccr5\\b",x)) '#0400FF' #Bex2 Cluster
+  else if(grepl("Ms4a6c\\b|Ms4a4c\\b|Timp1\\b|Apol9b\\b|Oas1f\\b|Chit1\\b|Fcgr1\\b|Acod1\\b|Serpina3g\\b|Serpina3f\\b|Ccl4\\b|Ccl12\\b|Msr1\\b|Cxcl11\\b|Cxcl9\\b|Ccl2\\b|Oasl1\\b|Rsad2\\b|Ifit1\\b|Mx1\\b|Ccl7\\b|Cxcl10\\b|Oas1a\\b|Isg15\\b|Zbp1\\b|Irf7\\b|Stat1\\b|A_52_P653054\\b|Phf11d\\b|Herc6\\b|Cxcl1\\b|Cmpk2\\b|BC023105\\b|Ifit1bl1\\b|Iigp1\\b|Irgm1\\b|Il6\\b|Mx2\\b|Ifit2\\b|Usp18\\b|Ifit3\\b|Ifi207\\b",x)) '#F0FF00'
+  else '#000000'
+}))
+```
+
+
+```{r}
+
+## generate static heatmap for saving cluster orders
+hm = heatmap.2(as.matrix(parsedDat), Colv = FALSE, col=yeBlBu_pal(27), scale=c("none"), dendrogram = c("row"), RowSideColors = bex2_cxcl10_cols, trace = c("none")) 
+
+## save heatmap dendrogram for interactive heatmaps to preserve ordering
+hm_rowv = hm$rowDendrogram
+```
+
+
+```{r}
+## create interactive heatmap with ComplexHeatmap to view in shiny app 
+hm2 = Heatmap(as.matrix(parsedDat), cluster_rows = rev(hm_rowv), cluster_columns = FALSE, col = yeBlBu_pal(27))
+hm2 = draw(hm2)
+ht_shiny(hm2)
+```
+
